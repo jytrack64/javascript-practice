@@ -23,17 +23,9 @@ makeRandom(0)
 makeRandom(1)
 makeRandom(2)
 
-// 랜덤으로 세 자리 숫자 생성, 첫 번째 숫자 0 안 되고, 중복 제거
+// 랜덤으로 세 자리 숫자 생성, 중복 제거
 function makeRandom(a) {
-  if (a == 0) {
-    temp = Math.floor((Math.random()) * 9 + 1)
-  }
-  else if(a == 1) {
-    temp = Math.floor((Math.random()) * 9)
-  }
-  else {
-    temp = Math.floor((Math.random()) * 8)
-  }
+  temp = Math.floor((Math.random()) *  + random.length)
   num[a] = random[temp]
   random.splice(temp, 1)
 }
@@ -76,7 +68,7 @@ while(true) {
     break;
   }
   else if(input == 'q') {
-    alert("게임을 종료합니다.")
+    alert("게임을 종료합니다. 정답은 "+ num[0] + num[1] + num[2] + "입니다.")
     break;
   }
   else { // 그렇지 않으면 결과를 보여줌
