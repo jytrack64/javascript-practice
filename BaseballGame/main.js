@@ -22,52 +22,20 @@ let cnt = 0
 makeRandom(0)
 makeRandom(1)
 makeRandom(2)
-
-// 랜덤으로 세 자리 숫자 생성, 중복 제거
-function makeRandom(a) {
-  temp = Math.floor((Math.random()) *  + random.length)
-  num[a] = random[temp]
-  random.splice(temp, 1)
-}
 console.log(num)
-
-// // 랜덤으로 세 자리  숫자 생성
-// for(let i=0; i<3; i++) {
-//   num[i] = Math.floor((Math.random()) * 10)
-  
-//   // 첫 번째 자리의 숫자가 0이 되는 것을 방지
-//   if (num[0] == 0) {
-//     continue
-//   }
-
-//   console.log(num[i])
-// }
 
 while(true) {
   input = prompt("0 ~ 9 사이의 세 자리 숫자를 입력하세요.\n(ex. 1 2 3)")
   inputarr = input.split(" ")
   cnt++
 
-  for(let i=0; i<3; i++) {
-    // STRIKE
-    if(num[i] == inputarr[i]) {
-      strike++
-    }
-    // BALL
-    else if( (num[i] == inputarr[0]) || (num[i] == inputarr[1]) || (num[i] == inputarr[2]) ) {
-      ball++
-    }
-    // OUT
-    else {
-      out++
-    }
-  }
+  checkInput()
   
-  if(strike == 3) { // 스트라이크가 세 개 나오면 while을 멈춤
-    alert("승리! " + cnt + "회만에 정답을 맞혔습니다.")
+  if(strike === 3) { // 스트라이크가 세 개 나오면 while을 멈춤
+    alert("🎉 승리! " + cnt + "회만에 정답을 맞혔습니다.")
     break;
   }
-  else if(input == 'q') {
+  else if(input === 'q') {
     alert("게임을 종료합니다. 정답은 "+ num[0] + num[1] + num[2] + "입니다.")
     break;
   }
@@ -80,4 +48,31 @@ while(true) {
   strike = 0
   ball = 0
   out = 0
+}
+
+// 랜덤으로 세 자리 숫자 생성, 중복 제거
+function makeRandom(a) {
+  temp = Math.floor((Math.random()) *  + random.length)
+  num[a] = random[temp]
+  random.splice(temp, 1)
+}
+
+// 사용자가 입력한 값과 정답 비교
+function checkInput() {
+  for(let i=0; i<3; i++) {
+    // STRIKE
+    if(num[i] === Number(inputarr[i])) {
+      strike++
+    }
+    // BALL
+    else if( (num[i] === Number(inputarr[0])) ||
+             (num[i] === Number(inputarr[1])) ||
+             (num[i] === Number(inputarr[2])) ) {
+      ball++
+    }
+    // OUT
+    else {
+      out++
+    }
+  }
 }
