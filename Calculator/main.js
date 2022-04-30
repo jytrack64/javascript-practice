@@ -1,7 +1,7 @@
 function Calculator() {
   this.read = function () {
-    input = prompt('두 개의 숫자를 입력하세요. (ex. 2, 1)')
-    inputsplit = input.split(',')
+    let input = prompt('두 개의 숫자를 입력하세요. (ex. 2 6)')
+    let inputsplit = input.split(' ')
 
     // parseInt, Number 모두 가능
     this.input1 = Number(inputsplit[0])
