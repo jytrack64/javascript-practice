@@ -4,4 +4,4 @@
 <br/>
 
 ## 실행 결과
-![](./calculator.gif)
+![calculator](https://user-images.githubusercontent.com/103479942/166091927-76a22f1a-66a8-4b68-89c8-21dc00504b6c.gif)
